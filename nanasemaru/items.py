@@ -11,4 +11,8 @@ import scrapy
 class NanasemaruItem(scrapy.Item):
     # define the fields for your item here like:
     # name = scrapy.Field()
-    pass
+    article_id = scrapy.Field()
+    article_title = scrapy.Field()
+    article_datetime = scrapy.Field()
+    image_urls = scrapy.Field()
+    images = scrapy.Field()
