@@ -6,6 +6,7 @@
 # https://doc.scrapy.org/en/latest/topics/spider-middleware.html
 
 from scrapy import signals
+from fake_useragent import UserAgent
 
 
 class NanasemaruSpiderMiddleware(object):
@@ -115,3 +116,10 @@ class ProxyMiddleware(object):
         # proxy_user_pass = "USERNAME:PASSWORD"
         # encoded_user_pass = base64.encodestring(proxy_user_pass)
         # request.headers['Proxy-Authorization'] = 'Basic ' + encoded_user_pass
+
+
+class UserAgentMiddleware(object):
+
+    def process_request(self, request, spider):
+        ua = UserAgent()
+        request.headers['User-Agent'] = ua.random
